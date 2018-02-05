@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aT-j1-Etk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Collection View Controller-->
+        <scene sceneID="4qa-0T-DWS">
+            <objects>
+                <collectionViewController id="XXa-Xg-gG1" customClass="ImageCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Twf-MO-igJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="E8i-su-Ugq">
+                            <size key="itemSize" width="120" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="ZlW-23-8pg" customClass="ImageCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkZ-ks-4UL">
+                                            <rect key="frame" x="39" y="49" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-a8-No4">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="F8U-a8-No4" secondAttribute="height" multiplier="1:1" id="sE7-vn-Utv"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="F8U-a8-No4" secondAttribute="trailing" id="9FL-wi-hst"/>
+                                    <constraint firstItem="F8U-a8-No4" firstAttribute="top" secondItem="ZlW-23-8pg" secondAttribute="top" id="IsG-bh-nnb"/>
+                                    <constraint firstItem="QkZ-ks-4UL" firstAttribute="centerX" secondItem="ZlW-23-8pg" secondAttribute="centerX" id="Ld9-sW-oGg"/>
+                                    <constraint firstItem="QkZ-ks-4UL" firstAttribute="centerY" secondItem="ZlW-23-8pg" secondAttribute="centerY" id="b2l-1l-68b"/>
+                                    <constraint firstItem="F8U-a8-No4" firstAttribute="leading" secondItem="ZlW-23-8pg" secondAttribute="leading" id="gqD-sC-IgY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageImageView" destination="F8U-a8-No4" id="GLL-Sf-Y2Q"/>
+                                    <outlet property="nameLabel" destination="QkZ-ks-4UL" id="oNZ-Mj-rNj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="XXa-Xg-gG1" id="NHP-AQ-4Od"/>
+                            <outlet property="delegate" destination="XXa-Xg-gG1" id="TAO-8M-Y5K"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="TP3-91-37v">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="ACZ-dW-bUj">
+                            <connections>
+                                <action selector="clickDeleteRecords:" destination="XXa-Xg-gG1" id="6f8-9G-5zX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nFq-Vo-Vgd">
+                            <connections>
+                                <segue destination="Ter-Za-GZl" kind="show" identifier="addImageSegue" id="zZO-id-omZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yf-9Y-59V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471.19999999999999" y="104.7976011994003"/>
+        </scene>
+        <!--Add image-->
+        <scene sceneID="bjv-1y-Krp">
+            <objects>
+                <viewController id="Ter-Za-GZl" customClass="ImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ta5-aA-UZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://images2.fanpop.com/images/photos/3500000/Cookie-Monster-cookie-monster-3512371-1024-768.jpg" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-si-bdl">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="MyImage_this" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M2-UL-uE0">
+                                <rect key="frame" x="20" y="124" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTU-YC-MDS">
+                                <rect key="frame" x="20" y="164" width="335" height="493"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Example: http://images2.fanpop.com/images/photos/3500000/Cookie-Monster-cookie-monster-3512371-1024-768.jpg
+
+http://www.pickywallpapers.com/1920x1080/animals/cats/the-most-awesome-cat-wallpaper/download/?get
+
+https://sxodim.com/uploads/almaty/2016/02/IMG_1644.CR2_-1200x800.jpg</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="URL"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hsX-k6-RtG" firstAttribute="trailing" secondItem="OVe-si-bdl" secondAttribute="trailing" constant="20" id="AtL-Td-u9H"/>
+                            <constraint firstItem="hsX-k6-RtG" firstAttribute="bottom" secondItem="VTU-YC-MDS" secondAttribute="bottom" constant="10" id="Eja-0w-DFq"/>
+                            <constraint firstItem="1M2-UL-uE0" firstAttribute="top" secondItem="OVe-si-bdl" secondAttribute="bottom" constant="10" id="Enw-1r-Sio"/>
+                            <constraint firstItem="1M2-UL-uE0" firstAttribute="leading" secondItem="hsX-k6-RtG" secondAttribute="leading" constant="20" id="FTe-Ql-C49"/>
+                            <constraint firstItem="OVe-si-bdl" firstAttribute="leading" secondItem="hsX-k6-RtG" secondAttribute="leading" constant="20" id="Hj6-SX-BLR"/>
+                            <constraint firstItem="hsX-k6-RtG" firstAttribute="trailing" secondItem="VTU-YC-MDS" secondAttribute="trailing" constant="20" id="IsF-jl-1Y8"/>
+                            <constraint firstItem="VTU-YC-MDS" firstAttribute="top" secondItem="1M2-UL-uE0" secondAttribute="bottom" constant="10" id="Js6-Ht-Kbx"/>
+                            <constraint firstItem="hsX-k6-RtG" firstAttribute="trailing" secondItem="1M2-UL-uE0" secondAttribute="trailing" constant="20" id="TcS-3a-auB"/>
+                            <constraint firstItem="OVe-si-bdl" firstAttribute="top" secondItem="hsX-k6-RtG" secondAttribute="top" constant="20" id="Wy4-uJ-15K"/>
+                            <constraint firstItem="VTU-YC-MDS" firstAttribute="leading" secondItem="hsX-k6-RtG" secondAttribute="leading" constant="20" id="woL-t6-Ngw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hsX-k6-RtG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add image" id="Sep-f2-DWV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Jpe-fl-PqA">
+                            <connections>
+                                <action selector="addItem:" destination="Ter-Za-GZl" id="CVC-9m-cG2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="URLTextField" destination="OVe-si-bdl" id="PJo-ba-rCQ"/>
+                        <outlet property="infoTextView" destination="VTU-YC-MDS" id="Eba-3T-jkg"/>
+                        <outlet property="nameTextField" destination="1M2-UL-uE0" id="gWb-FO-csb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Rh-4Y-f0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="105"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HR2-Up-wW3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2aT-j1-Etk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kxw-Ub-rMU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XXa-Xg-gG1" kind="relationship" relationship="rootViewController" id="VW6-al-j7g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbb-nT-7hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="105"/>
+        </scene>
+    </scenes>
+</document>
